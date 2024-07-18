@@ -1,0 +1,63 @@
+# WHILE LOOP
+
+index = 1 
+while index <= 5
+  puts index
+  index +=1
+end 
+
+
+# FOR LOOPS
+
+# for index in 0..5   # for every number with[in] range 0 to 5, print it out
+#   puts index
+# end
+
+5.times do |turtle| # an interating variable
+  puts turtle
+end
+
+lucky_nums = [4, 8, 15, 16, 23, 42]
+for lucky_turt in lucky_nums  # lucky_turt is interating variable  || lucky_num = name of structure wanting to be looped
+  puts lucky_turt
+end
+
+# or
+
+lucky_nums = [4, 8, 15, 16, 23, 42]
+lucky_nums.each do |lucky_turt|
+  puts lucky_turt
+end
+
+
+class Turtle
+  attr_accessor :turt, :env
+
+  def scritchTurt()
+    puts "You found a #{self.turt}, relaxing on #{self.env}. Give 'em a scritch!"
+  end
+end
+
+turt1 = Turtle.new()
+turt1.turt = "green sea turtle"
+turt1.env = "the beach"
+
+turt1.scritchTurt()
+puts turt1.turt
+
+# CONSTRUCTORS
+
+class Turtle
+  attr_accessor :turt, :env
+  def initialize(turt, env)
+    @turt = turt
+    @env = env
+  end
+
+  def scritchTurt()
+    puts "You found a #{self.turt}, relaxing on #{@env}. Give 'em a scritch!"
+  end
+end
+ 
+turt1 = Turtle.new("honu", "the beach")
+puts turt1.turt
