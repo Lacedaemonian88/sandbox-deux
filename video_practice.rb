@@ -128,3 +128,58 @@ lil_turt._self()
 
 stronk_turt = HonuStormconch.new()
 stronk_turt._self()
+
+
+# Inheretence Constructors
+class Honu
+
+  attr_accessor :name, :age
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  def oracle()
+    puts "this turt speaks to Nuth"
+  end
+
+  def chosen()
+    puts "this turt fights for Takaroa"
+  end
+
+  def _self()
+    puts "this turt doesn't know who she is"
+  end
+end
+
+class HonuStormconch < Honu
+  attr_accessor :island_of_origin
+  def initialize(name, age, island_of_origin)
+      @island_of_origin = island_of_origin
+      super(name, age)
+  end 
+  
+  def cleric()
+    puts "this turt helps out her friends"
+  end
+
+  def monk()
+    puts "this turt heckin' punches"
+  end
+
+  def maia()
+    puts "this turt want to get some cuddles"
+  end
+
+  def _self()
+    puts "this turt knows who she is"
+  end
+end
+
+
+lil_turt = Honu.new("The Oracle", 28)
+lil_turt._self()
+
+stronk_turt = HonuStormconch.new("Honu Stromconch", 28, "Kailani")
+stronk_turt._self()
+puts stronk_turt.age
