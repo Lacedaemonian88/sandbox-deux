@@ -100,7 +100,7 @@ class Honu
     puts "this turt fights for Takaroa"
   end
 
-  def self()
+  def _self()
     puts "this turt doesn't know who she is"
   end
 end
@@ -117,4 +117,14 @@ class HonuStormconch < Honu
   def maia()
     puts "this turt want to get some cuddles"
   end
+
+  def _self()
+    puts "this turt knows who she is"
+  end
 end
+
+lil_turt = Honu.new()
+lil_turt._self()
+
+stronk_turt = HonuStormconch.new()
+stronk_turt._self()
