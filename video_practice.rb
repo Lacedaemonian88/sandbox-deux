@@ -61,3 +61,60 @@ end
  
 turt1 = Turtle.new("honu", "the beach")
 puts turt1.turt
+
+# Getters and Setters
+
+class Turtle
+  attr_accessor :turt, :env
+  def initialize(turt, env)
+    self.turt = turt
+    @env = env
+  end
+
+  def turt=(turt)   ## Setters allow you to assign new attributes
+    puts "Set"
+    @turt = turt
+  end
+
+#   def turt 
+#     puts "Get"
+#     return @turt
+#   end
+ end
+ 
+# turt1 = Turtle.new("honu", "the beach")
+# puts turt1.turt
+
+tort = Turtle.new("Takaroa's Chosen", "Kailani")
+p tort.turt
+
+
+# Inheretence
+
+class Honu
+  def oracle()
+    puts "this turt speaks to Nuth"
+  end
+
+  def chosen()
+    puts "this turt fights for Takaroa"
+  end
+
+  def self()
+    puts "this turt doesn't know who she is"
+  end
+end
+
+class HonuStormconch < Honu
+  def cleric()
+    puts "this turt helps out her friends"
+  end
+
+  def monk()
+    puts "this turt heckin' punches"
+  end
+
+  def maia()
+    puts "this turt want to get some cuddles"
+  end
+end
