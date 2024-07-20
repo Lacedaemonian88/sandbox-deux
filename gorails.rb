@@ -29,3 +29,11 @@ framework.join
 framework.join(" ")
 
 "Ruby on rails".split
+"Ruby on rails".split("")
+
+"Ruby on Rails".split.join.split("")
+# or
+"Ruby on Rails".scan(/\w/) # w detects words b -- would not include space characters-- not a word lol
+arr + arr1 # can concantinate arrays -- doesnt chnage original arrays, need to make an new method V
+
+arr2 = arr + arr1
