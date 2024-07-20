@@ -25,3 +25,36 @@ pets = {
 
 pets[:dog][:name] 
 pets.dig(:dog, :name) ## easier method... digs down into nested methos instead of using multile [] --> must be passed in order
+
+
+me[:hobbies].each do |hobby|
+  puts hobby.capitalize
+end
+
+me.each do |details|
+  p details
+end
+
+me.each do |key, val|
+  puts "#{key} => #{val}"
+end
+
+{"foo" => "bar"} # legacy version for key value
+
+
+me[:location]
+
+new_age = {age: 33} # will overwrite
+me.merge(new_age)
+
+h = {["foo", "bar"] => "baz"}  #too add something
+h[["foo", "bar"]]   # to omit it
+
+
+a = {name: "Tempest"}
+b = {"name" => "Honu"}
+
+a[:name]
+b[:name] # returns nil -- because set to string
+
+b["name"]
