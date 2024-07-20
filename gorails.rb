@@ -7,6 +7,7 @@ arr1 = _ #grabs last array (unaaagined thing that was recently returned/)
   --only works for irb
 =end
 
+arr = [1, 2, 3, 4, 5]
 arr1 = [5, 4, 3, 2, 1]
 arr1[0] = 25
 
@@ -36,4 +37,18 @@ framework.join(" ")
 "Ruby on Rails".scan(/\w/) # w detects words b -- would not include space characters-- not a word lol
 arr + arr1 # can concantinate arrays -- doesnt chnage original arrays, need to make an new method V
 
-arr2 = arr + arr1
+puts arr2 = arr + arr1
+
+puts arr.empty?
+arr
+puts [].empty?
+
+puts arr.include?("hello")
+puts arr.include?(3) 
+
+arr.first
+arr[-1]
+arr.last
+arr.first(3) # displays first 3 of array
+arr.last(3)
+arr.reverse 
