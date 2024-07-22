@@ -1,6 +1,6 @@
 USERNAME = "examplelolz"
 PASSWORD = "Surfing"
-PASSWORD_VAULT = {}
+PASSWORD_VAULT = {aws: {user_name: "lol", password: "doggo" }}
 
 puts "Welcome to None Shall Pass - a password manager"
 puts "Please sign in to continue"
@@ -46,7 +46,14 @@ when "1"
   PASSWORD_VAULT[new_service]["password"] = new_service_password
   p PASSWORD_VAULT
 when "2"
-  puts "this is retrieve exisiting credentials"
+  print "Please enter the name of service you wish to access credentials for: "
+  requested_service_name = gets.chomp
+  credentials = PASSWORD_VAULT[requested_service_name.to_sym]
+  
+  puts "Here and the credentials for #{requested_service_name}"
+  credentials.each do |key, val|
+    puts "#{key}: #{val}"
+  end
 else 
   puts "Exiting the program. Goodbye."
   exit
