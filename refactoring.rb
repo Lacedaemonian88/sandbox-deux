@@ -55,11 +55,9 @@ def handle_user_selection(user_selection)
   when "2"
     requested_service_name = retrieve_service_name
     credentials = retrieve_service_credentials_for(requested_service_name)
-    display_service_credentials(credentials)
-    
+    display_service_credentials(requested_service_name, redentials)
   else 
-    puts "Exiting the program. Goodbye."
-    exit
+    exit_program
   end
 end
 
@@ -96,3 +94,11 @@ def display_service_credentials(service_name, credentials)
   credentials.each do |key, val|
     puts "#{key}: #{val}"
   end
+
+  def exit_program
+    puts "Exiting the program. Goodbye."
+    exit
+  end
+
+
+  
