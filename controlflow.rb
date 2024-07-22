@@ -1,5 +1,6 @@
 USERNAME = "examplelolz"
 PASSWORD = "Surfing"
+PASSWORD_VAULT = {}
 
 puts "Welcome to None Shall Pass - a password manager"
 puts "Please sign in to continue"
@@ -22,9 +23,31 @@ unless user_password != PASSWORD
   puts "What would you like to do?"
   puts "1. Add new service credentials"
   puts "2. Retrieve an existing service credentials"
+  puts "3. Exit"
+  user_selection = gets.chomp
 
   else
-    puts
-    puts
-    puts
+    puts "Invalid"
+    exit
+end
+
+case user_selection
+when "1"
+  print "Enter the name of the service: "
+  new_service = gets.chomp
+  PASSWORD_VAULT[new_service] = {}
+
+  print "Please enter the username for this new service: "
+  new_service_username = gets.chomp
+  PASSWORD_VAULT[new_service]["username"] = new_service_username
+
+  print "Please enter the password for this new service: "
+  new_service_password = gets.chomp
+  PASSWORD_VAULT[new_service]["password"] = new_service_password
+  p PASSWORD_VAULT
+when "2"
+  puts "this is retrieve exisiting credentials"
+else 
+  puts "Exiting the program. Goodbye."
+  exit
 end
