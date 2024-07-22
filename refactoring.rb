@@ -52,7 +52,7 @@ def handle_user_selection(user_selection)
   when "1"
    new_service = set_new_service_name
    set_username_for_service(new_service)
-   set_password_for(service)
+   set_password_for(new_service)
   when "2"
     requested_service_name = retrieve_service_name
     credentials = retrieve_service_credentials_for(requested_service_name)
@@ -94,13 +94,15 @@ def display_service_credentials(service_name, credentials)
   puts "Here and the credentials for #{service_name}"
   credentials.each do |key, val|
     puts "#{key}: #{val}"
-  end
-
-  def exit_program
+ end
+end  
+  
+  
+def exit_program
     puts "Exiting the program. Goodbye."
     exit
-  end
 end
+
 
 
 welcome_message
