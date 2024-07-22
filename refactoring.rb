@@ -46,25 +46,17 @@ def get_user_menu_seletion
    gets.chomp
 end
 
-def handle_user_selection 
+def handle_user_selection(user_selection) 
   case user_selection
   when "1"
    new_service = set_new_service_name
    set_username_for_service(new_service)
-
-    print "Please enter the password for this new service: "
-    new_service_password = gets.chomp
-    PASSWORD_VAULT[new_service]["password"] = new_service_password
-    p PASSWORD_VAULT
+   set_password_for(service)
   when "2"
-    print "Please enter the name of service you wish to access credentials for: "
-    requested_service_name = gets.chomp
-    credentials = PASSWORD_VAULT[requested_service_name.to_sym]
+    requested_service_name = retrieve_service_name
+    credentials = retrieve_service_credentials_for(requested_service_name)
+    display_service_credentials(credentials)
     
-    puts "Here and the credentials for #{requested_service_name}"
-    credentials.each do |key, val|
-      puts "#{key}: #{val}"
-    end
   else 
     puts "Exiting the program. Goodbye."
     exit
@@ -83,3 +75,24 @@ def set_username_for_service(service)
   new_service_username = gets.chomp
   PASSWORD_VAULT[service.to_sym][:username] = new_service_username
 end
+
+def set_password_for
+  print "Please enter the password for this new service: "
+  new_service_password = gets.chomp
+  PASSWORD_VAULT[service.to_sym][:password] = new_service_password
+end
+
+def retrieve_service_name
+  print "Please enter the name of service you wish to access credentials for: "
+  gets.chomp
+end
+
+def retrieve_service_credentials_for(service_name)
+  PASSWORD_VAULT[service_name.to_sym]
+end
+
+def display_service_credentials(service_name, credentials)
+  puts "Here and the credentials for #{requested_service_name}"
+  credentials.each do |key, val|
+    puts "#{key}: #{val}"
+  end
