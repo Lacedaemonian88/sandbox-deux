@@ -2,59 +2,84 @@ USERNAME = "examplelolz"
 PASSWORD = "Surfing"
 PASSWORD_VAULT = {aws: {user_name: "lol", password: "doggo" }}
 
-puts "Welcome to None Shall Pass - a password manager"
-puts "Please sign in to continue"
-print  "Enter email: "
+def welcome_message
+  puts "Welcome to None Shall Pass - a password manager"
+end
 
-user_name = gets.chomp
+def prompt_user_for_username
+  puts "Please sign in to continue"
+  print  "Enter username: "
+  gets.chomp
+end
 
-if user_name == USERNAME #some condition is true
-    print "Enter password: " #executre some code
-    user_password = gets.chomp  
-else 
+# user_name = gets.chomp
+def verify_user_name(user_name)
+if user_name != USERNAME #some condition is true
    puts "Invalid email"
    exit    # execute some other chonk
 end
 
+def prompt_user_for_username
+  print "Enter password: "
+  gets.chomp
+end
 
+def verify_user_password
+  if user_password != PASSWORD
+    puts "Invalid password"
+    exit
+  end
+end
 
-unless user_password != PASSWORD
+def greet user(user_name)
   puts "Hello, #{user_name}"
   puts "What would you like to do?"
+end
+
+def menu_options
   puts "1. Add new service credentials"
   puts "2. Retrieve an existing service credentials"
   puts "3. Exit"
-  user_selection = gets.chomp
-
-  else
-    puts "Invalid"
-    exit
 end
 
-case user_selection
-when "1"
-  print "Enter the name of the service: "
-  new_service = gets.chomp
-  PASSWORD_VAULT[new_service] = {}
+def get_user_menu_seletion
+   gets.chomp
+end
 
+def handle_user_selection 
+  case user_selection
+  when "1"
+   new_service = set_new_service_name
+   set_username_for_service(new_service)
+
+    print "Please enter the password for this new service: "
+    new_service_password = gets.chomp
+    PASSWORD_VAULT[new_service]["password"] = new_service_password
+    p PASSWORD_VAULT
+  when "2"
+    print "Please enter the name of service you wish to access credentials for: "
+    requested_service_name = gets.chomp
+    credentials = PASSWORD_VAULT[requested_service_name.to_sym]
+    
+    puts "Here and the credentials for #{requested_service_name}"
+    credentials.each do |key, val|
+      puts "#{key}: #{val}"
+    end
+  else 
+    puts "Exiting the program. Goodbye."
+    exit
+  end
+end
+
+def set_new_service_name
+  print "Enter the name of the service: "
+      new_service = gets.chomp
+      PASSWORD_VAULT[new_service.to_sym] = {}
+      new_service
+end
+
+def set_username_for_service(service)
   print "Please enter the username for this new service: "
   new_service_username = gets.chomp
-  PASSWORD_VAULT[new_service]["username"] = new_service_username
-
-  print "Please enter the password for this new service: "
-  new_service_password = gets.chomp
-  PASSWORD_VAULT[new_service]["password"] = new_service_password
-  p PASSWORD_VAULT
-when "2"
-  print "Please enter the name of service you wish to access credentials for: "
-  requested_service_name = gets.chomp
-  credentials = PASSWORD_VAULT[requested_service_name.to_sym]
-  
-  puts "Here and the credentials for #{requested_service_name}"
-  credentials.each do |key, val|
-    puts "#{key}: #{val}"
-  end
-else 
-  puts "Exiting the program. Goodbye."
-  exit
+  PASSWORD_VAULT[service.to_sym][:username] = new_service_username
 end
