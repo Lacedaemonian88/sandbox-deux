@@ -89,3 +89,21 @@ def some_numbers(arr_of_nums, &code_block)
 end
 negative_nums = [-1, -2, -3]
 some_numbers(negative_nums)
+
+# Lambda
+
+l = lambda {puts "hello"}
+p = Proc.new {puts "hey"}
+
+p.call
+l.call
+
+stabby_lambda = -> {puts "Stabby Lambda"} # ruby on rails -- define scopes
+stabby_lambda.call
+
+
+greet_person = -> (name) { puts "Hello, #{name}" }
+greet_person.call("Tempest")
+
+bid_farwell = Proc.new{ |name| puts "goodbye, #{name}"}
+bid_farwell.call("Tempest")
