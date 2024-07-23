@@ -107,3 +107,19 @@ greet_person.call("Tempest")
 
 bid_farwell = Proc.new{ |name| puts "goodbye, #{name}"}
 bid_farwell.call("Tempest")
+
+def lambda_return_example
+  puts "Inside method body"
+  l = -> {return 5}
+  l.call
+  puts "After lambda call"
+end
+
+  #vs
+
+def proc_return_example
+    puts "Inside method body"
+    p = Proc.new {return 5}
+    p.call
+    puts "After lambda call"
+ end 
