@@ -1,6 +1,14 @@
 class House
-
+  
   @@count = 0
+
+  def self.count
+    @@count
+  end
+
+  def self.report_count_of_instances
+    "There are #{} of instances of the #{} class"
+  end
   # attr_reader :color #attribute reader
   # attr_writer :color
   attr_accessor :color, :style
@@ -8,6 +16,7 @@ class House
   def initialize(color, style)
     @color = color # @ ===> instance variable
     @style = style
+    @@count += 1
   end
 
   # def color   #reader (getter)
@@ -22,7 +31,7 @@ end
 # p House.name
 # p House.class
 
-
+puts House.count
 house =  House.new("blue", "craftsman")
 puts house.color
  #can be written as: 
@@ -31,3 +40,4 @@ puts house.color
 # house.color = "purple"
 # puts house.color
 puts house.style
+puts House.count 
