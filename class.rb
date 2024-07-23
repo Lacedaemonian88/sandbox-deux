@@ -1,6 +1,7 @@
 class House
-  attr_reader :color #attribute reader
-  attr_writer :color
+  # attr_reader :color #attribute reader
+  # attr_writer :color
+  attr_accessor :color
 
   def initialize(color)
     @color = color # @ ===> instance variable
