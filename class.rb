@@ -1,10 +1,13 @@
 class House
+
+  @@count = 0
   # attr_reader :color #attribute reader
   # attr_writer :color
-  attr_accessor :color
+  attr_accessor :color, :style
 
-  def initialize(color)
+  def initialize(color, style)
     @color = color # @ ===> instance variable
+    @style = style
   end
 
   # def color   #reader (getter)
@@ -20,10 +23,11 @@ end
 # p House.class
 
 
-house =  House.new("blue")
+house =  House.new("blue", "craftsman")
 puts house.color
  #can be written as: 
 # house.color=("purple")
 # # or
-house.color = "purple"
-puts house.color
+# house.color = "purple"
+# puts house.color
+puts house.style
