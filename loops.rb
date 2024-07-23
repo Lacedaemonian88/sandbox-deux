@@ -123,3 +123,6 @@ def proc_return_example
     p.call
     puts "After lambda call"
  end 
+
+ lambda_return_example
+ proc_return_example
