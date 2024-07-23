@@ -51,3 +51,41 @@ end
 some_numbers(negative_nums) do |num|
   puts num.abs
 end
+
+def some_numbers(arr_of_nums)
+  arr_of_nums.each { |num| yield num }
+end
+
+
+print_capitalize_name = Proc.new { |name| puts name.capitalize}
+print_capitalize_name.call("tempest")
+
+["tempest", "chance"].each &print_capitalize_name
+# ["tempest", "chance"].map { |name| name.capitalize}
+["tempest", "chance"].map(&:capitalize)
+
+
+# def some_numbers(arr_of_nums, &code_block)
+#   arr_of_nums.each { |num| code_block.call(num) }
+# end
+# negative_nums = [-1, -2, -3]
+# some_numbers(negative_nums)
+
+# def some_numbers(arr_of_nums, &code_block)
+#   arr_of_nums.each { |num| yield num }
+# end
+# negative_nums = [-1, -2, -3]
+# some_numbers(negative_nums)
+
+
+### Block_Given ###
+def some_numbers(arr_of_nums, &code_block)
+  arr_of_nums.each { |num| code_block.call(num) if block_given?}
+end 
+some_numbers(negative_nums)
+
+def some_numbers(arr_of_nums, &code_block)
+  arr_of_nums.each { |num| yield num  if block_given?}
+end
+negative_nums = [-1, -2, -3]
+some_numbers(negative_nums)
