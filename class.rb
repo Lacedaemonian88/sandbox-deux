@@ -7,7 +7,8 @@ class House
   end
 
   def self.report_count_of_instances
-    "There are #{} of instances of the #{} class"
+    "There are #{count} of instances of the #{name} class"  # implicit self
+    # or "There are #{self.count} of instances of the #{self.name} class"
   end
   # attr_reader :color #attribute reader
   # attr_writer :color
@@ -19,6 +20,9 @@ class House
     @@count += 1
   end
 
+   def details
+      "This house is a #{color} #{style} house instance."
+    end
   # def color   #reader (getter)
   #  @color
   # end 
@@ -31,13 +35,8 @@ end
 # p House.name
 # p House.class
 
+puts House.report_count_of_instances
 puts House.count
 house =  House.new("blue", "craftsman")
-puts house.color
- #can be written as: 
-# house.color=("purple")
-# # or
-# house.color = "purple"
-# puts house.color
-puts house.style
+puts house.details
 puts House.count 
